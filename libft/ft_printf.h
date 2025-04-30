@@ -15,11 +15,11 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include "libft.h"
 
 int				ft_print_char(char c);
 int				ft_print_string(char *str);
 int				ft_print_num(int n);
-unsigned long	ft_strlen(char *str);
 int				ft_print_num_base(unsigned long n, char *base);
 int				ft_print_pointer(void *ptr);
 int				ft_printf(char const *format, ...);

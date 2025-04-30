@@ -34,17 +34,17 @@ void print_stack(t_stack *stack) {
     }
 }
 // Agrega un nodo al final de una pila
-void add_back(t_stack **stack, t_stack *new)
-{
-    if(!*stack) // Si la pila esta vacia
-    {
-        *stack = new; // El nuevo nodo es el primero
-    }
-    else
-    {
-     t_stack *tmp = *stack;
-    }
-}
+// void add_back(t_stack **stack, t_stack *new)
+// {
+//     if(!*stack) // Si la pila esta vacia
+//     {
+//         *stack = new; // El nuevo nodo es el primero
+//     }
+//     else
+//     {
+//      t_stack *tmp = *stack;
+//     }
+// }
 int main() {
 
     t_stack *primeraPila = NULL;

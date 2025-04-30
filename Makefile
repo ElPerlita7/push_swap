@@ -16,19 +16,16 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c stack.c operations.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
-PRINTF = ft_printf/libftprintf.a
 
 all: $(NAME)
 	
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 $(LIBFT): 
 	make -C libft
 
-$(PRINTF):
-	make -C ft_printf
-%.o: %.c
+%.o: %.c $(LIBFT)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:

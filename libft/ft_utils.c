@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:40:50 by abferrer          #+#    #+#             */
-/*   Updated: 2025/02/20 17:24:56 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/04/30 17:45:03 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int	ft_print_num_base(unsigned long n, char *base)
 	int	count;
 
 	count = 0;
-	if (n >= ft_strlen(base))
+	if (n >= ft_strlen2(base))
 	{
-		count += ft_print_num_base(n / ft_strlen(base), base);
+		count += ft_print_num_base(n / ft_strlen2(base), base);
 	}
-	n = n % ft_strlen(base);
+	n = n % ft_strlen2(base);
 	count += ft_print_char(base[n]);
 	return (count);
 }

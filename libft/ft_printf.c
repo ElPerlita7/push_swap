@@ -6,14 +6,13 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:29:50 by abferrer          #+#    #+#             */
-/*   Updated: 2025/02/20 17:24:28 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/01 01:50:32 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
 
-unsigned long	ft_strlen(char *str)
+unsigned long	ft_strlen2(char *str)
 {
 	unsigned long	len;
 

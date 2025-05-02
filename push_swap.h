@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:23:24 by abferrer          #+#    #+#             */
-/*   Updated: 2025/04/25 18:48:46 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/04/30 18:03:49 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PUSH_SWAP_H
 #include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
 
 typedef struct push_swap_node
 {

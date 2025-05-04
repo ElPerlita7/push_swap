@@ -6,22 +6,22 @@
 #    By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 19:59:47 by abferrer          #+#    #+#              #
-#    Updated: 2025/04/30 17:31:06 by abferrer         ###   ########.fr        #
+#    Updated: 2025/05/04 21:34:02 by abferrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c stack.c operations.c
+SRCS = push_swap.c stack.c operations_push.c operations_swap.c operations_rotate.c
 OBJS = $(SRCS:.c=.o)
-LIBFT = libft/libft.a
+LIBFTA = libft/libft.a
 
 all: $(NAME)
 	
 $(NAME): $(OBJS)
 	cd libft && make 
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFTA)
 
 $(LIBFT): 
 	make -C libft

@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:23:24 by abferrer          #+#    #+#             */
-/*   Updated: 2025/04/30 18:03:49 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/04 22:16:51 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define PUSH_SWAP_H
 #include <stdlib.h>
 #include <stdio.h>
-#include "libft.h"
+#include "./libft/libft.h"
 
 typedef struct push_swap_node
 {
@@ -22,13 +22,25 @@ typedef struct push_swap_node
     struct push_swap_node *next;  // Valor del siguiente nodo
 } t_stack;
 
-// operations.c
-void push (t_stack **source, t_stack **destination);
+// operations.push.c
+void ft_push (t_stack **source, t_stack **destination);
 void pa(t_stack **a, t_stack **b);
 void pb(t_stack **a, t_stack **b);
 
+// operations.swap.c
+void ft_swap(t_stack **stack);
+void sa(t_stack **a, char flag);
+void sb(t_stack **b, char flag);
+void ss(t_stack **a, t_stack **b);
+
+// operations_rotate.c
+void ft_rotate(t_stack **stack);
+void ra(t_stack **a);
+void rb(t_stack **b);
+void rr(t_stack **a, t_stack **b);
 // stack.c
 t_stack *create_node(int value);
 void    print_stack(t_stack *stack);
+t_stack *stacklast(t_stack *stack);
 
 #endif

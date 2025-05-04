@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:38 by abferrer          #+#    #+#             */
-/*   Updated: 2025/04/25 18:51:21 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/04 22:18:58 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,21 @@ t_stack *create_node(int value)
 }
 
 // Recorre todo el stack y imprime los valores del stack
-void print_stack(t_stack *stack) {
+void print_stack(t_stack *stack) 
+{
     
     t_stack *aux = stack; // variable auxiliar donde guardo lo que hay en el stack
 
     while (aux != NULL) { // Si el stack es diferente a null
-        printf("%d\n", aux->value); // Imprimo su valor
+        ft_printf("%d\n", aux->value); // Imprimo su valor
         aux = aux->next; //Apunto al siguiente nodo
     }
+}
+t_stack *stacklast(t_stack *stack)
+{
+    while (stack->next != NULL)
+        stack = stack->next;
+    return (stack);
 }
 // Agrega un nodo al final de una pila
 // void add_back(t_stack **stack, t_stack *new)
@@ -70,7 +77,7 @@ int main() {
     print_stack(segundaPila);
   
     printf("Hago PushA\n");
-    pa(&primeraPila, &segundaPila);
+    rr(&primeraPila, &segundaPila);
     printf("Primera pila\n");
     print_stack(primeraPila);
     printf("Segunda pila\n");

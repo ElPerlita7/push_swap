@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:23:24 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/04 22:16:51 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/05 00:02:47 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ void ft_rotate(t_stack **stack);
 void ra(t_stack **a);
 void rb(t_stack **b);
 void rr(t_stack **a, t_stack **b);
+
+// operations_reverse.c
+void ft_reverse(t_stack **stack);
+void rra(t_stack **a);
+void rrb(t_stack **b);
+void rrr(t_stack **a, t_stack **b);
+
 // stack.c
 t_stack *create_node(int value);
 void    print_stack(t_stack *stack);

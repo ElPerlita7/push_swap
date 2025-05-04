@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 22:34:21 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/04 23:51:58 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/05 00:02:10 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,20 @@ void ft_reverse(t_stack **stack)
     prev->next = NULL; // Asigna prev al ultimo nodo de la lista
     last->next = *stack; // Conecta last como el primero del stack
     *stack = last; // Apunta stack al primer nodo de la lista
+}
+void rra(t_stack **a)
+{
+    ft_reverse(a);
+    ft_printf("ra\n");
+}
+void rrb(t_stack **b)
+{
+    ft_reverse(b);
+    ft_printf("rb\n");
+}
+void rrr(t_stack **a, t_stack **b)
+{
+    ft_reverse(a);
+    ft_reverse(b);
+    ft_printf("rrr\n");
 }

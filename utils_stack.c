@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   utils_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:38 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/04 22:18:58 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:24:13 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void print_stack(t_stack *stack)
         aux = aux->next; //Apunto al siguiente nodo
     }
 }
-t_stack *stacklast(t_stack *stack)
+t_stack *add_last_node(t_stack *stack)
 {
     while (stack->next != NULL)
         stack = stack->next;

@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:38 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/06 18:24:13 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/13 17:32:51 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,48 +40,60 @@ t_stack *add_last_node(t_stack *stack)
         stack = stack->next;
     return (stack);
 }
-// Agrega un nodo al final de una pila
-// void add_back(t_stack **stack, t_stack *new)
-// {
-//     if(!*stack) // Si la pila esta vacia
-//     {
-//         *stack = new; // El nuevo nodo es el primero
-//     }
-//     else
-//     {
-//      t_stack *tmp = *stack;
-//     }
-// }
-int main() {
+int count_arg(char **argv)
+{
+    int i;
+    int j;
+    char **tmp;
+    int count;
 
-    t_stack *primeraPila = NULL;
-    t_stack *segundaPila = NULL;
+    i = 1;
+    count = 0;
+    while (argv[i])
+    {
+        j = 0;
+        tmp = ft_split(argv[i], ' ');
+        while (argv[j])
+        {
+            j++;
+            count++;
+        }
+        free(tmp);
+       i++; 
+    }
+    return (count);
+}
+
+// int main() {
+
+//     t_stack *primeraPila = NULL;
+//     t_stack *segundaPila = NULL;
   
-    t_stack *nodoA = create_node(55);
-    t_stack *nodoB = create_node(125);
-    t_stack *nodoC = create_node(675);
+//     t_stack *nodoA = create_node(55);
+//     t_stack *nodoB = create_node(125);
+//     t_stack *nodoC = create_node(675);
   
-    nodoA->next = nodoB;
-    nodoB->next = nodoC;
-    primeraPila = nodoA;
+//     nodoA->next = nodoB;
+//     nodoB->next = nodoC;
+//     primeraPila = nodoA;
   
-    t_stack *nodoD = create_node(775);
-    t_stack *nodoE = create_node(885);
+//     t_stack *nodoD = create_node(775);
+//     t_stack *nodoE = create_node(885);
   
-    nodoD->next = nodoE;
-    segundaPila = nodoD;
+//     nodoD->next = nodoE;
+//     segundaPila = nodoD;
   
-    printf("Primera pila\n");
-    print_stack(primeraPila);
-    printf("Segunda pila\n");
-    print_stack(segundaPila);
+//     printf("Primera pila\n");
+//     print_stack(primeraPila);
+//     printf("Segunda pila\n");
+//     print_stack(segundaPila);
   
-    printf("Hago PushA\n");
-    rr(&primeraPila, &segundaPila);
-    printf("Primera pila\n");
-    print_stack(primeraPila);
-    printf("Segunda pila\n");
-    print_stack(segundaPila);
+//     printf("Hago PushA\n");
+//     rr(&primeraPila, &segundaPila);
+//     printf("Primera pila\n");
+//     print_stack(primeraPila);
+//     printf("Segunda pila\n");
+//     print_stack(segundaPila);
   
-    return (0);
-  }
+//     return (0);
+//   }

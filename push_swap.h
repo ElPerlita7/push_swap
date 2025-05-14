@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:23:24 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/06 18:24:39 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/07 02:50:19 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void rrr(t_stack **a, t_stack **b);
 t_stack *create_node(int value);
 void    print_stack(t_stack *stack);
 t_stack *add_last_node(t_stack *stack);
+int count_arg(char **argv);
 
 #endif

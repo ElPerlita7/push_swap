@@ -14,7 +14,7 @@
 #define PUSH_SWAP_H
 #include <stdlib.h>
 #include <stdio.h>
-#include "./libft/libft.h"
+#include "libft.h"
 
 typedef struct push_swap_node
 {
@@ -45,10 +45,16 @@ void rra(t_stack **a);
 void rrb(t_stack **b);
 void rrr(t_stack **a, t_stack **b);
 
-// stack.c
+// utils_stack.c
 t_stack *create_node(int value);
 void    print_stack(t_stack *stack);
 t_stack *add_last_node(t_stack *stack);
+
+// parse_arg.c
+int arg_isnum(char *tokens);
+char **parse_arg_split(char **argv);
+void arg_free(char **argv);
 int count_arg(char **argv);
+
 
 #endif

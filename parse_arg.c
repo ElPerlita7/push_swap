@@ -39,18 +39,90 @@ char **parse_arg_split(char **argv)
         i++;
     }
     tokens[k] = NULL;
-    return(tokens);
+    return (tokens);
 }
 int arg_isnum(char *tokens)
 {
-char    **tokens;
 int i;
 
 i = 0;
-    if (!tokens)
-        return (NULL);
+    // Comprueba si la cadena esta vacia
+    if (!tokens || tokens[0] == '\0')
+        return (0);
+    // Si empieza con '+' o '-' lo salta
     if (tokens[i] == '+' || tokens[i] == '-')
-        return (NULL);
+    {
+        if (!tokens[1])
+            return (0);
+        i = 1;
+    }
+    // Comprueba sea solo digito
+    while (tokens[i])
+    {
+        ft_isdigit(tokens[i]);
+        return (0);
+    i++;
+    }
+    return (1); // Si todas las compraciones esta bien!!
+}
+void arg_free(char **argv)
+{
+    int i;
+
+    i = 0;
+    // Si el argumento esta vacio
+    if(!argv)
+        return(0);
+    // Mientras argumentos en su posicion no sea null
+    while (argv[i] != NULL)
+    {
+        free(argv[i]); // libera argumentos en su posicion
+        i++; // avanza a la posicion siguiente
+    }
+    free(argv); //libera el argumento si no entra al bucle
+}
+int count_arg(char **argv)
+{
+    int i;
+    int j;
+    char **tmp;
+    int count;
+
+    i = 1;
+    count = 0;
+    while (argv[i])
+    {
+        j = 0;
+        tmp = ft_split(argv[i], ' ');
+        while (argv[j])
+        {
+            j++;
+            count++;
+        }
+        free(tmp);
+       i++; 
+		}
+    return (count);
+}
+
+int arg_is_duplicated(char **argv)
+{
+    int i;
+    int j;
+
+    i = 0;  
+    while (argv[i] != NULL)
+    {
+        j = 0;
+        while (j != i)
+        {
+            if (ft_strcmp(argv[i], argv[j]))
+                return (1);
+            ++j;
+        }
+        ++i;
+    }
+    return (0);
 }
 
 int main(int argc, char **argv)
@@ -66,7 +138,7 @@ int main(int argc, char **argv)
         ft_printf("%s\n", token[i]);
         i++;
     }
-    return(0);
+    return (0);
 }
 
 

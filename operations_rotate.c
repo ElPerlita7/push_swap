@@ -24,7 +24,7 @@ void ft_rotate(t_stack **stack)
         return ;
     first = *stack; // Guarda el primer elemento de la pila en first
     *stack = first->next; // mover el top del stack al segundo nodo
-    last = stacklast(*stack); // utilizo la funcion de stacklast para asignar last como ultimo nodo
+    last = add_last_node(*stack); // utilizo la funcion de stacklast para asignar last como ultimo nodo
     first->next = NULL; // Quitar el link al segundo
     last->next = first; // Unes al ultimo el primero, haciendo de este el nuevo ultimo
 }

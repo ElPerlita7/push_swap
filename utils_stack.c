@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:38 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/13 17:32:51 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/14 17:12:35 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,6 @@ t_stack *add_last_node(t_stack *stack)
     while (stack->next != NULL)
         stack = stack->next;
     return (stack);
-}
-int count_arg(char **argv)
-{
-    int i;
-    int j;
-    char **tmp;
-    int count;
-
-    i = 1;
-    count = 0;
-    while (argv[i])
-    {
-        j = 0;
-        tmp = ft_split(argv[i], ' ');
-        while (argv[j])
-        {
-            j++;
-            count++;
-        }
-        free(tmp);
-       i++; 
-    }
-    return (count);
 }
 
 // int main() {

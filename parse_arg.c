@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 01:29:31 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/13 19:33:26 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:35:45 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ char **parse_arg_split(char **argv)
 }
 int arg_isnum(char *tokens)
 {
-int i;
+    int i;
 
-i = 0;
+    i = 0;
     // Comprueba si la cadena esta vacia
     if (!tokens || tokens[0] == '\0')
         return (0);
@@ -59,12 +59,14 @@ i = 0;
     // Comprueba sea solo digito
     while (tokens[i])
     {
-        ft_isdigit(tokens[i]);
-        return (0);
-    i++;
+        if (!ft_isdigit(tokens[i]))
+            return (0);
+        
+        i++;
     }
     return (1); // Si todas las compraciones esta bien!!
 }
+
 void arg_free(char **argv)
 {
     int i;

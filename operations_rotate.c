@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 20:46:35 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/04 22:14:35 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:16:18 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void ft_rotate(t_stack **stack)
         return ;
     first = *stack; // Guarda el primer elemento de la pila en first
     *stack = first->next; // mover el top del stack al segundo nodo
-    last = add_last_node(*stack); // utilizo la funcion de stacklast para asignar last como ultimo nodo
+    last = get_last_node(*stack); // utilizo la funcion de stacklast para asignar last como ultimo nodo
     first->next = NULL; // Quitar el link al segundo
     last->next = first; // Unes al ultimo el primero, haciendo de este el nuevo ultimo
 }

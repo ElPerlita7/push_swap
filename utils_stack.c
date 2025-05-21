@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:38 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/14 17:12:35 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/21 02:52:44 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,26 @@ void print_stack(t_stack *stack)
         aux = aux->next; //Apunto al siguiente nodo
     }
 }
-t_stack *add_last_node(t_stack *stack)
+t_stack *get_last_node(t_stack *stack)
 {
     while (stack->next != NULL)
         stack = stack->next;
     return (stack);
 }
-
+void add_node_back(t_stack **stack, t_stack *new_node)
+{
+    t_stack temp;
+    
+    if (!*stack)
+    {
+        *stack = new_node;
+        return (0);
+    }
+    temp = *stack;
+    while (temp->next)
+        temp = temp->next;
+    temp->next = new_node;
+}
 // int main() {
 
 //     t_stack *primeraPila = NULL;

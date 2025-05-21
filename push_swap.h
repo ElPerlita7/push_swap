@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:23:24 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/07 02:50:19 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/21 02:50:32 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,19 @@ void rrr(t_stack **a, t_stack **b);
 // utils_stack.c
 t_stack *create_node(int value);
 void    print_stack(t_stack *stack);
-t_stack *add_last_node(t_stack *stack);
+t_stack *get_last_node(t_stack *stack);
+void add_node_back(t_stack **stack, t_stack *new_node);
 
 // parse_arg.c
 int arg_isnum(char *tokens);
 char **parse_arg_split(char **argv);
 void arg_free(char **argv);
 int count_arg(char **argv);
+int arg_is_duplicated(char **argv);
+
+// parse_stack.c
+void arg_error(void);
+int arg_int_in_range(char *str);
 
 
 #endif

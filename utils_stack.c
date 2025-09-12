@@ -6,11 +6,12 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:38 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/21 02:52:44 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/26 20:47:02 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft.h"
 
 // Crea un nuevo nodo con un valor;
 t_stack *create_node(int value)
@@ -42,7 +43,7 @@ t_stack *get_last_node(t_stack *stack)
 }
 void add_node_back(t_stack **stack, t_stack *new_node)
 {
-    t_stack temp;
+    t_stack *temp;
     
     if (!*stack)
     {

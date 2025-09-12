@@ -16,17 +16,16 @@
 #include <unistd.h>
 #include <limits.h>
 
-int	ft_atoi_safe(const char *str)
+int	ft_atoi_safe(const char *str, int *error)
 {
 	int	i;
 	int	sign;
 	long	num;
-	int *error;
 
 	i = 0;
 	sign = 1;
 	num = 0;
-	*error = 0;
+	error = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -38,7 +37,7 @@ int	ft_atoi_safe(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
-		if((num * sign) > 2147483647 || (num * sign) < 2147483648)
+		if((num * sign) > INT_MAX || (num * sign) < INT_MIN)
 		*error = 1;
 	i++;
 	}

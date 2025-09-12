@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 01:29:31 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/19 22:35:45 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:37:43 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int count_arg(char **argv)
     return (count);
 }
 
-int arg_is_duplicated(char **argv)
+int arg_is_duplicated(char *argv)
 {
     int i;
     int j;

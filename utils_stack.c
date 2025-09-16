@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:38 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/26 20:47:02 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:33:34 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void add_node_back(t_stack **stack, t_stack *new_node)
     if (!*stack)
     {
         *stack = new_node;
-        return (0);
+        return;
     }
     temp = *stack;
     while (temp->next)

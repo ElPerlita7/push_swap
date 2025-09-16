@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:23:24 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/30 15:37:53 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:05:52 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@
 #include <unistd.h>
 #include "libft/libft.h"
 
-typedef struct push_swap_list
+typedef struct push_swap_node
 {
     int value;  //Valor del nodo
     struct push_swap_node *next;  // Valor del siguiente nodo
 } t_stack;
-
+/*
 typedef struct push_swap_list2
 {
     t_stack stack_a;
     t_stack stack_b;
 } t_stack2;
+ */
 
 // operations.push.c
 void ft_push (t_stack **source, t_stack **destination);
@@ -63,11 +64,11 @@ int arg_isnum(char *tokens);
 char **parse_arg_split(char **argv);
 void arg_free(char **argv);
 int count_arg(char **argv);
-int arg_is_duplicated(char *argv);
+int arg_is_duplicated(char **argv);
 
 // parse_stack.c
 void arg_error(void);
-int arg_int_in_range(char *str);
+int arg_int_in_range(char *str, int *output);
 int parse_stack(char **tokens, t_stack **stack_a);
 
 #endif 

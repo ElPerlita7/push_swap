@@ -6,7 +6,7 @@
 /*   By: abferrer <abferrer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 01:29:31 by abferrer          #+#    #+#             */
-/*   Updated: 2025/05/30 15:37:43 by abferrer         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:22:23 by abferrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void arg_free(char **argv)
     i = 0;
     // Si el argumento esta vacio
     if(!argv)
-        return(0);
+        return;
     // Mientras argumentos en su posicion no sea null
     while (argv[i] != NULL)
     {
@@ -107,18 +107,18 @@ int count_arg(char **argv)
     return (count);
 }
 
-int arg_is_duplicated(char *argv)
+int arg_is_duplicated(char **argv)
 {
     int i;
     int j;
 
     i = 0;  
-    while (argv[i] != NULL)
+    while (argv[i])
     {
         j = 0;
         while (j != i)
         {
-            if (ft_strcmp(argv[i], argv[j]))
+            if (ft_strncmp(argv[i], argv[j], ft_strlen(argv[i])) == 0)
                 return (1);
             ++j;
         }
@@ -126,7 +126,7 @@ int arg_is_duplicated(char *argv)
     }
     return (0);
 }
-
+/*
 int main(int argc, char **argv)
 {
     int i;
@@ -142,5 +142,6 @@ int main(int argc, char **argv)
     }
     return (0);
 }
+*/
 
 

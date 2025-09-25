@@ -23,19 +23,35 @@ char **parse_arg_split(char **argv)
 
     i = 1; // Empieza por 1 por que el 0 seria el nombre del programa("ft_push_swap")
     k = 0;
-    tokens = malloc(sizeof(char *) * count_arg(argv) + 1); // Reservo Memoria para tokens, cuento cuantos numeros individuales hay despues de hacer split y le sumo +1 para añadir el NULL
+    tokens = malloc(sizeof(char *) * (count_arg(argv) + 1)); // Reservo Memoria para tokens, cuento cuantos numeros individuales hay despues de hacer split y le sumo +1 para añadir el NULL
     if (!tokens) // Si falla malloc devuelvo NULL
         return (NULL);
     while(argv[i]) // Recorro argv[1] hasta el final
     {
         j = 0; // Le doy el valor a 0 a j para que recorra desde 0 y siempre que entre al bucle empiece desde 0
         tmp = ft_split(argv[i], ' '); // Llamo a split para dividirlo en palabras separadas por espacios
+        if (!tmp) // Check if ft_split failed
+        {
+            // Free everything allocated so far
+            while (k > 0)
+                free(tokens[--k]);
+            free(tokens);
+            return (NULL);
+        }
         
         while (tmp[j])
         { 
             tokens[k++] = ft_strdup(tmp[j++]);
         }
-        free(tmp);
+        
+        // FREE THE INDIVIDUAL STRINGS IN tmp BEFORE FREEING tmp ITSELF
+        j = 0;
+        while (tmp[j])
+        {
+            free(tmp[j]);
+            j++;
+        }
+        free(tmp); // Now free the array
         i++;
     }
     tokens[k] = NULL;
@@ -83,6 +99,7 @@ void arg_free(char **argv)
     }
     free(argv); //libera el argumento si no entra al bucle
 }
+
 int count_arg(char **argv)
 {
     int i;
@@ -96,14 +113,26 @@ int count_arg(char **argv)
     {
         j = 0;
         tmp = ft_split(argv[i], ' ');
-        while (argv[j])
+        if (!tmp) // Check if ft_split failed
+            return (0);
+            
+        // BUG FIX: Change argv[j] to tmp[j]
+        while (tmp[j])
         {
             j++;
             count++;
         }
-        free(tmp);
-       i++; 
-		}
+        
+        // FREE THE INDIVIDUAL STRINGS IN tmp BEFORE FREEING tmp ITSELF
+        j = 0;
+        while (tmp[j])
+        {
+            free(tmp[j]);
+            j++;
+        }
+        free(tmp); // Now free the array
+        i++; 
+    }
     return (count);
 }
 
@@ -112,36 +141,21 @@ int arg_is_duplicated(char **argv)
     int i;
     int j;
 
-    i = 0;  
+    i = 0;
     while (argv[i])
     {
-        j = 0;
-        while (j != i)
+        j = i + 1;
+        while (argv[j])
         {
-            if (ft_strncmp(argv[i], argv[j], ft_strlen(argv[i])) == 0)
+            size_t len_i = ft_strlen(argv[i]);
+            size_t len_j = ft_strlen(argv[j]);
+            if (len_i == len_j && ft_strncmp(argv[i], argv[j], len_i) == 0)
+            {
                 return (1);
+            }
             ++j;
         }
         ++i;
     }
     return (0);
 }
-/*
-int main(int argc, char **argv)
-{
-    int i;
-    char **token;
-    
-    i = 0;
-    (void)argc;
-    token = parse_arg_split(argv);
-    while (token[i])
-    {
-        ft_printf("%s\n", token[i]);
-        i++;
-    }
-    return (0);
-}
-*/
-
-

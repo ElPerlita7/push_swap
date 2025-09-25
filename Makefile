@@ -14,7 +14,8 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I libft
 SRCS = push_swap.c utils_stack.c operations_push.c operations_swap.c \
-operations_rotate.c operations_reverse.c parse_arg.c parse_stack.c
+operations_rotate.c operations_reverse.c parse_arg.c parse_stack.c sort.c \
+simple_sort.c
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
 

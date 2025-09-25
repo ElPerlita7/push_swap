@@ -22,13 +22,6 @@ typedef struct push_swap_node
     int value;  //Valor del nodo
     struct push_swap_node *next;  // Valor del siguiente nodo
 } t_stack;
-/*
-typedef struct push_swap_list2
-{
-    t_stack stack_a;
-    t_stack stack_b;
-} t_stack2;
- */
 
 // operations.push.c
 void ft_push (t_stack **source, t_stack **destination);
@@ -58,6 +51,9 @@ t_stack *create_node(int value);
 void    print_stack(t_stack *stack);
 t_stack *get_last_node(t_stack *stack);
 void add_node_back(t_stack **stack, t_stack *new_node);
+int  stack_size(t_stack *stack);
+int  is_sorted(t_stack *stack);
+void free_stack(t_stack *stack);
 
 // parse_arg.c
 int arg_isnum(char *tokens);
@@ -71,4 +67,18 @@ void arg_error(void);
 int arg_int_in_range(char *str, int *output);
 int parse_stack(char **tokens, t_stack **stack_a);
 
-#endif 
+// sort.c
+int *stack_to_array(t_stack *a, int size);
+void array_sort(int *arr, int size);
+int get_index(int value, int *sorted, int size);
+int find_max_pos(t_stack *stack);
+void bring_to_top(t_stack **stack, int pos, char which);
+void ksort(t_stack **a);
+
+// simple_sort.c
+int find_min_pos(t_stack *stack);
+void sort_three(t_stack **a);
+void simple_sort(t_stack **a);
+
+
+#endif

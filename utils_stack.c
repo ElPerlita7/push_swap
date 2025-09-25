@@ -55,36 +55,40 @@ void add_node_back(t_stack **stack, t_stack *new_node)
         temp = temp->next;
     temp->next = new_node;
 }
-// int main() {
 
-//     t_stack *primeraPila = NULL;
-//     t_stack *segundaPila = NULL;
-  
-//     t_stack *nodoA = create_node(55);
-//     t_stack *nodoB = create_node(125);
-//     t_stack *nodoC = create_node(675);
-  
-//     nodoA->next = nodoB;
-//     nodoB->next = nodoC;
-//     primeraPila = nodoA;
-  
-//     t_stack *nodoD = create_node(775);
-//     t_stack *nodoE = create_node(885);
-  
-//     nodoD->next = nodoE;
-//     segundaPila = nodoD;
-  
-//     printf("Primera pila\n");
-//     print_stack(primeraPila);
-//     printf("Segunda pila\n");
-//     print_stack(segundaPila);
-  
-//     printf("Hago PushA\n");
-//     rr(&primeraPila, &segundaPila);
-//     printf("Primera pila\n");
-//     print_stack(primeraPila);
-//     printf("Segunda pila\n");
-//     print_stack(segundaPila);
-  
-//     return (0);
-//   }
+int stack_size(t_stack *stack)
+{
+    int size = 0;
+    while (stack)
+    {
+        stack = stack->next;
+        size++;
+    }
+    return size;
+}
+
+int is_sorted(t_stack *stack)
+{
+    if (!stack)
+        return (1);
+
+    while (stack->next)
+    {
+        if (stack->value > stack->next->value)
+            return (0);
+        stack = stack->next;
+    }
+    return (1);
+}
+
+void free_stack(t_stack *stack)
+{
+    t_stack *tmp;
+
+    while (stack)
+    {
+        tmp = stack;
+        stack = stack->next;
+        free(tmp);
+    }
+}
